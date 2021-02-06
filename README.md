@@ -29,7 +29,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## The goal is to develop an end to end workflow for analysis of RNA-seq data
+## About The Project
 
 
 ### Built With
