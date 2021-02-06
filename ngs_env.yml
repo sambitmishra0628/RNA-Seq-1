@@ -1,4 +1,4 @@
-name: ngs_env
+name: rnaseq_env
 channels:
   - bioconda
   - conda-forge
