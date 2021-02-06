@@ -30,6 +30,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+In this project, I have implemented an end-to-end automated workflow for performing RNA-seq analysis.
 
 
 ### Built With
