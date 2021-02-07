@@ -1,13 +1,26 @@
 ## Author: Sambit K. Mishra
 ## Created: 02-06-2021
 
-## Location for data and samples
-DATADIR: /mnt/c/Users/sambi/Dropbox/My_Projects/001_corona_virus/05_RNA_Seq_proj_1/
-SAMPLEDIR: /mnt/c/Users/sambi/Dropbox/My_Projects/001_corona_virus/05_RNA_Seq_proj_1/samples/
+## Directory names and paths. All directory names are relative to DATADIR
+DATADIR: /mnt/c/Users/sambi/Dropbox/My_Projects/005_RNA-seq_workflows/01_RNA-seq_proj_1/
+SAMPLEDIR: samples/ 
+RESULTDIR: results/  
+
+# FASTQC output directory names (relative to RESULTDIR)
+FQ_RAW_DIR: results/fastqc_raw/
+FQ_TRIMMED_DIR: results/fastqc_trimmed/
+
+# MultiQC output direcory names (relative to RESULTDIR)
+MQ_RAW_DIR: results/multiqc_raw/
+MQ_TRIMMED_DIR: results/multiqc_trimmed/
+
+# Directory for Trimmed Samples
+TRIMMED_SAMPLE_DIR: results/samples_trimmed/
 
 # Data source
 src_url: https://sra-pub-sars-cov2.s3.amazonaws.com/sra-src/
 
+# SRR IDs
 SRR_CONTROL:
   - SRR12023943
   - SRR12023944
@@ -17,33 +30,17 @@ SRR_TREATMENT:
   - SRR12023947
   - SRR12023948
 
-# PARAMETERS
+# Parameters
 THREADS: 7
 
-# SAMPLE NAMES
+# Sample names
 CONTROL:
   - Control1
-  - Control2
-  - Control3
-
+  #- Control2
+  #- Control3
 TREATMENT:
   - 48hrs1
-  - 48hrs2
-  - 48hrs3
-  
+  #- 48hrs2
+  #- 48hrs3
 
-  # SAMPLE NAMES
-# CONTROL:
-#   - Control1_R1.fq.gz.1
-#   - Control1_R2.fq.gz.1
-#   - Control2_R1.fq.gz.1
-#   - Control2_R2.fq.gz.1
-#   - Control3_R1.fq.gz.1
-#   - Control3_R2.fq.gz.1
-# TREATMENT:
-#   - 48hrs1_R1.fq.gz.1
-#   - 48hrs1_R2.fq.gz.1
-#   - 48hrs2_R1.fq.gz.1
-#   - 48hrs2_R2.fq.gz.1
-#   - 48hrs3_R1.fq.gz.1
-#   - 48hrs3_R2.fq.gz.1 
+
