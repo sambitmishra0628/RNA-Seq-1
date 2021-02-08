@@ -3,5 +3,5 @@ channels:
   - conda-forge
 dependencies:
   - fastqc =0.11.8
-  #- multiqc
+  - multiqc
   #- cutadapt  

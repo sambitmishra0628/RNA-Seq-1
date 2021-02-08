@@ -36,10 +36,10 @@ rule trim_adapters:
         trt_fw = expand("{dd}" + "{sd}" + "{treatment_id}" + "_R1" + ".fq.gz", dd=config["DATADIR"], sd=config["SAMPLEDIR"], treatment_id=config["TREATMENT"]),
         trt_rev = expand("{dd}" + "{sd}" + "{treatment_id}" + "_R2" + ".fq.gz", dd=config["DATADIR"], sd=config["SAMPLEDIR"], treatment_id=config["TREATMENT"]),
     output:
-        ctr_fw = expand("{dd}" + "{td}" + "{control_id}" + "_R1_trimmed"  + ".fq.gz" , dd=config["DATADIR"], sd=config["TRIMMED_SAMPLE_DIR"], control_id=config["CONTROL"]),
-        ctr_rev = expand("{dd}" + "{td}" + "{control_id}" + "_R2_trimmed"  + ".fq.gz" , dd=config["DATADIR"], sd=config["TRIMMED_SAMPLE_DIR"], control_id=config["CONTROL"]),
-        trt_fw = expand("{dd}" + "{td}" + "{treatment_id}" + "_R1_trimmed" + ".fq.gz", dd=config["DATADIR"], sd=config["TRIMMED_SAMPLE_DIR"], treatment_id=config["TREATMENT"]),
-        trt_rev = expand("{dd}" + "{td}" + "{treatment_id}" + "_R2_trimmed" + ".fq.gz", dd=config["DATADIR"], sd=config["TRIMMED_SAMPLE_DIR"], treatment_id=config["TREATMENT"]),
+        ctr_fw = expand("{dd}" + "{td}" + "{control_id}" + "_R1_trimmed"  + ".fq.gz" , dd=config["DATADIR"], td=config["TRIMMED_SAMPLE_DIR"], control_id=config["CONTROL"]),
+        ctr_rev = expand("{dd}" + "{td}" + "{control_id}" + "_R2_trimmed"  + ".fq.gz" , dd=config["DATADIR"], td=config["TRIMMED_SAMPLE_DIR"], control_id=config["CONTROL"]),
+        trt_fw = expand("{dd}" + "{td}" + "{treatment_id}" + "_R1_trimmed" + ".fq.gz", dd=config["DATADIR"], td=config["TRIMMED_SAMPLE_DIR"], treatment_id=config["TREATMENT"]),
+        trt_rev = expand("{dd}" + "{td}" + "{treatment_id}" + "_R2_trimmed" + ".fq.gz", dd=config["DATADIR"], td=config["TRIMMED_SAMPLE_DIR"], treatment_id=config["TREATMENT"]),
     conda:
         "qc.yml"
     shell:
