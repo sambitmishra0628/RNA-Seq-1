@@ -42,10 +42,11 @@ rule trim_adapters:
         trt_rev = expand("{dd}" + "{td}" + "{treatment_id}" + "_R2_trimmed" + ".fq.gz", dd=config["DATADIR"], td=config["TRIMMED_SAMPLE_DIR"], treatment_id=config["TREATMENT"]),
     conda:
         "qc.yml"
+    threads: 4    
     shell:
         """
-        cutadapt -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT -o {output.ctr_fw} -p {output.ctr_rev} {input.ctr_fw} {input.ctr_rev}
-        cutadapt -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT -o {output.trt_fw} -p {output.trt_rev} {input.trt_fw} {input.trt_rev} 
+        cutadapt -q 20 --cores {threads} -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT -o {output.ctr_fw} -p {output.ctr_rev} {input.ctr_fw} {input.ctr_rev}
+        cutadapt -q 20 --cores {threads} -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT -o {output.trt_fw} -p {output.trt_rev} {input.trt_fw} {input.trt_rev} 
         """
 
 # rule fastqc_trimmed:

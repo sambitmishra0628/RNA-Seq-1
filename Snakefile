@@ -17,8 +17,13 @@ rule all:
         directory(expand("{dd}" + "{fq}", dd=config["DATADIR"], fq=config["FQ_RAW_DIR"])),
 
         # Run MultiQC on raw data
-        directory(expand("{dd}" + "{fq}", dd=config["DATADIR"], fq=config["MQ_RAW_DIR"]))
+        directory(expand("{dd}" + "{fq}", dd=config["DATADIR"], fq=config["MQ_RAW_DIR"])),
         
+        # Run cutadapt on the raw data
+        expand("{dd}" + "{td}" + "{control_id}" + "_R1_trimmed"  + ".fq.gz" , dd=config["DATADIR"], td=config["TRIMMED_SAMPLE_DIR"], control_id=config["CONTROL"]),
+        expand("{dd}" + "{td}" + "{control_id}" + "_R2_trimmed"  + ".fq.gz" , dd=config["DATADIR"], td=config["TRIMMED_SAMPLE_DIR"], control_id=config["CONTROL"]),
+        expand("{dd}" + "{td}" + "{treatment_id}" + "_R1_trimmed" + ".fq.gz", dd=config["DATADIR"], td=config["TRIMMED_SAMPLE_DIR"], treatment_id=config["TREATMENT"]),
+        expand("{dd}" + "{td}" + "{treatment_id}" + "_R2_trimmed" + ".fq.gz", dd=config["DATADIR"], td=config["TRIMMED_SAMPLE_DIR"], treatment_id=config["TREATMENT"]),
         
         #directory(expand("{dd}" + "{rr}/{fq}", dd=config["DATADIR"], rr=config["RESULTDIR_NAME"], fq=config["FQ_RAW"])),
         #expand("{sample_dir}" + "{control_id}" + "_R" + "{p}" + ".fq.gz.1" , sample_dir=config["SAMPLEDIR"], control_id=config["CONTROL"], p=[1,2]),
