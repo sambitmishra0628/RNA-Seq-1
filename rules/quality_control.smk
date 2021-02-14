@@ -1,6 +1,5 @@
 ## Author: Sambit K. Mishra
 ## Created: 02-06-2021
-# Define variables here
 
 ## Run quality control on raw RNA-seq data
 rule fastqc_raw:
