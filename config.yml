@@ -2,20 +2,20 @@
 ## Created: 02-06-2021
 
 ## Directory names and paths. All directory names are relative to DATADIR
-DATADIR: /mnt/c/Users/sambi/Dropbox/My_Projects/005_RNA-seq_workflows/01_RNA-seq_proj_1/
-SAMPLEDIR: samples/ 
-RESULTDIR: results/  
+DATADIR: /mnt/c/Users/sambi/Dropbox/My_Projects/005_RNA-seq_workflows/01_RNA-seq_proj_1
+# SAMPLEDIR: samples/ 
+# RESULTDIR: results/  
 
-# FASTQC output directory names (relative to RESULTDIR)
-FQ_RAW_DIR: results/fastqc_raw/
-FQ_TRIMMED_DIR: results/fastqc_trimmed/
+# # FASTQC output directory names (relative to RESULTDIR)
+# FQ_RAW_DIR: results/fastqc_raw/
+# FQ_TRIMMED_DIR: results/fastqc_trimmed/
 
-# MultiQC output direcory names (relative to RESULTDIR)
-MQ_RAW_DIR: results/multiqc_raw/
-MQ_TRIMMED_DIR: results/multiqc_trimmed/
+# # MultiQC output direcory names (relative to RESULTDIR)
+# MQ_RAW_DIR: results/multiqc_raw/
+# MQ_TRIMMED_DIR: results/multiqc_trimmed/
 
-# Directory for Trimmed Samples
-TRIMMED_SAMPLE_DIR: results/samples_trimmed/
+# # Directory for Trimmed Samples
+# TRIMMED_SAMPLE_DIR: results/samples_trimmed/
 
 # Data source
 src_url: https://sra-pub-sars-cov2.s3.amazonaws.com/sra-src/
@@ -36,11 +36,11 @@ THREADS: 7
 # Sample names
 CONTROL:
   - Control1
-  #- Control2
+  - Control2
   #- Control3
 TREATMENT:
   - 48hrs1
-  #- 48hrs2
+  - 48hrs2
   #- 48hrs3
 
 
