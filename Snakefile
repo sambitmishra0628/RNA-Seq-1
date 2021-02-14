@@ -4,14 +4,6 @@
 configfile: "config.yml"
 srcdir = "rules/"
 
-# Define variables here
-#dd=config["DATADIR"]
-#sd=config["SAMPLEDIR"]
-#td=config["TRIMMED_SAMPLE_DIR"]
-#control_id=config["CONTROL"]
-#treatment_id=config["TREATMENT"]
-
-
 include: srcdir + "fetch_samples.smk",
 include: srcdir + "quality_control.smk",    
 
