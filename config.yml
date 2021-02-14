@@ -3,22 +3,21 @@
 
 ## Directory names and paths. All directory names are relative to DATADIR
 DATADIR: /mnt/c/Users/sambi/Dropbox/My_Projects/005_RNA-seq_workflows/01_RNA-seq_proj_1
-# SAMPLEDIR: samples/ 
-# RESULTDIR: results/  
-
-# # FASTQC output directory names (relative to RESULTDIR)
-# FQ_RAW_DIR: results/fastqc_raw/
-# FQ_TRIMMED_DIR: results/fastqc_trimmed/
-
-# # MultiQC output direcory names (relative to RESULTDIR)
-# MQ_RAW_DIR: results/multiqc_raw/
-# MQ_TRIMMED_DIR: results/multiqc_trimmed/
-
-# # Directory for Trimmed Samples
-# TRIMMED_SAMPLE_DIR: results/samples_trimmed/
 
 # Data source
 src_url: https://sra-pub-sars-cov2.s3.amazonaws.com/sra-src/
+
+# Reference genome source urls
+human_genome_url: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.39_GRCh38.p13/GCF_000001405.39_GRCh38.p13_genomic.fna.gz
+covid19_genome_url: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/009/858/895/GCF_009858895.2_ASM985889v3/GCF_009858895.2_ASM985889v3_genomic.fna.gz
+human_gff_url: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.39_GRCh38.p13/GCF_000001405.39_GRCh38.p13_genomic.gff.gz
+covid19_gff_url: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/009/858/895/GCF_009858895.2_ASM985889v3/GCF_009858895.2_ASM985889v3_genomic.gff.gz 
+
+# Name of the genome and gff files
+human_genome: GCF_000001405.39_GRCh38.p13_genomic.fna
+human_gff: GCF_000001405.39_GRCh38.p13_genomic.gff
+covid19_genome: GCF_009858895.2_ASM985889v3_genomic.fna
+covid19_gff: GCF_009858895.2_ASM985889v3_genomic.gff
 
 # SRR IDs
 SRR_CONTROL:
