@@ -24,15 +24,12 @@ rule all:
         expand("{dd}" + "/results/samples_trimmed/" + "{control_id}_R2_trimmed.fq.gz", dd=config['DATADIR'], control_id=config['CONTROL']),
         expand("{dd}" + "/results/samples_trimmed/" + "{treatment_id}_R1_trimmed.fq.gz", dd=config['DATADIR'], treatment_id=config['TREATMENT']),
         expand("{dd}" + "/results/samples_trimmed/" + "{treatment_id}_R2_trimmed.fq.gz", dd=config['DATADIR'], treatment_id=config['TREATMENT']),                
-
-        #expand("/mnt/c/Users/sambi/Dropbox/My_Projects/005_RNA-seq_workflows/01_RNA-seq_proj_1/samples/" + "{control_id}_R1_trimmed.fq.gz", control_id=config["CONTROL"]),
-        #expand("{dd}" + "{td}" + "{control_id}" + "_R1_trimmed"  + ".fq.gz" , dd=config["DATADIR"], td=config["TRIMMED_SAMPLE_DIR"], control_id=config["CONTROL"]),
-
-        #expand("{dd}" + "{td}" + "{control_id}" + "_R2_trimmed"  + ".fq.gz" , dd=config["DATADIR"], td=config["TRIMMED_SAMPLE_DIR"], control_id=config["CONTROL"]),
-        #expand("{dd}" + "{td}" + "{treatment_id}" + "_R1_trimmed" + ".fq.gz", dd=config["DATADIR"], td=config["TRIMMED_SAMPLE_DIR"], treatment_id=config["TREATMENT"]),
-        #expand("{dd}" + "{td}" + "{treatment_id}" + "_R2_trimmed" + ".fq.gz", dd=config["DATADIR"], td=config["TRIMMED_SAMPLE_DIR"], treatment_id=config["TREATMENT"]),
-        
+               
         # Run FastQC on trimmed data
+        directory(expand("{dd}/results/fastqc_trimmed/", dd=config["DATADIR"])),
+
+        # Run MultiQC on trimmed data
+        directory(expand("{dd}/results/multiqc_trimmed/",dd=config["DATADIR"])),
         #directory(expand("{dd}" + "{fq}", dd=config["DATADIR"], fq=config["FQ_TRIMMED_DIR"])),
         #directory(expand("{dd}" + "{rr}/{fq}", dd=config["DATADIR"], rr=config["RESULTDIR_NAME"], fq=config["FQ_RAW"])),
         #expand("{sample_dir}" + "{control_id}" + "_R" + "{p}" + ".fq.gz.1" , sample_dir=config["SAMPLEDIR"], control_id=config["CONTROL"], p=[1,2]),
