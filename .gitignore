@@ -3,6 +3,9 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Ignore certain specific files in this repository
+.snakemake
+wget*
 # User-specific files
 *.rsuser
 *.suo

@@ -36,11 +36,11 @@ THREADS: 7
 # Sample names
 CONTROL:
   - Control1
-  - Control2
+  #- Control2
   #- Control3
 TREATMENT:
   - 48hrs1
-  - 48hrs2
+  #- 48hrs2
   #- 48hrs3
 
 

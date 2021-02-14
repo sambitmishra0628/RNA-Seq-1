@@ -1,9 +1,0 @@
-channels:
-  - bioconda
-  - conda-forge
-  - defaults
-dependencies:
-  - fastqc =0.11.8
-  - multiqc
-  - pip:
-    - cutadapt  

@@ -34,13 +34,9 @@ rule trim_adapters:
     input:
         fw = "{dd}" + "/samples/" + "{sample_id}" + "_R1.fq.gz",
         rev = "{dd}" + "/samples/" + "{sample_id}" + "_R2.fq.gz",
-        #trt_fw = "{dd}" + "/samples/" + "{sample_id}" + "_R1.fq.gz",
-        #trt_rev = "{dd}" + "/samples/" + "{sample_id}" + "_R2.fq.gz",
     output:
         fw = "{dd}" + "/results/samples_trimmed/" + "{sample_id}" + "_R1_trimmed.fq.gz",
         rev = "{dd}" + "/results/samples_trimmed/" + "{sample_id}" + "_R2_trimmed.fq.gz",
-        #trt_fw = "{dd}" + "/results/samples_trimmed/" + "{sample_id}" + "_R1_trimmed.fq.gz",
-        #trt_rev = "{dd}" + "/results/samples_trimmed/" + "{sample_id}" + "_R2_trimmed.fq.gz",
     conda:
         "qc.yml"
     threads: config["THREADS"]    
