@@ -2,7 +2,7 @@
 # Snakemake Workflow to Analyze RNA-seq data from Covid-19-infected Samples
 The repository contains a Snakemake workflow to analyze data from Covid-19 infected samples from humans. The workflow analyzes bulk RNA-seq data from a study by Katsura *et al.* (https://www.cell.com/cell-stem-cell/pdf/S1934-5909(20)30499-9.pdf). Katsura *et al.* collected bulk RNA-seq from a sample of SARS-CoV-2 infected human lung cells (alveolar type 2 or AT2 cells) 48 hours post inoculation alongwith RNA-seq from a control (uninfected) sample. Each sample had 3 replicates. The data was deposited by the authors at the gene expression omnibus (GEO) database (GSE152586) and can be accessed at https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE152586.   
 
-*Note: The current version of the pipeline has only the Data Download, Raw Data Quality Check, Adapter Trimming and Trimmed Data Quality Check sections complete. Work is still in progress for other sections (mapping, quantification and differential gene expression)*
+*Note: The current version of the pipeline has only the Data Download, Raw Data Quality Check, Adapter Trimming and Trimmed Data Quality Check sections complete. Work is still in progress for other sections (mapping, quantification and differential gene expression) of the pipeline*
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
