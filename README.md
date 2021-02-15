@@ -1,5 +1,5 @@
 
-# Project Title
+# Snakemake Workflow to Analyze RNA-seq data from Covid-19-infected Samples
 
 
 <!-- TABLE OF CONTENTS -->
