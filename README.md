@@ -114,6 +114,12 @@ You can use the environment file provided in this repository to create a similar
     snakemake -p --use-conda --configfile config.yml --cores 4
     ```
 
+6. Run the following command to view the dag
+    ```
+    snakemake --dag | dot -Tpng > dag.png
+    ```
+![dag_image](dag.png)    
+
 
 <!-- LICENSE -->
 ## License
