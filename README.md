@@ -1,6 +1,6 @@
 
 # Snakemake Workflow to Analyze RNA-seq data from Covid-19-infected Samples
-The repository contains a Snakemake workflow to analyze data from Covid-19 infected samples from humans. The workflow analyzes bulk RNA-seq data from a study by Katsura *et al.* (https://www.cell.com/cell-stem-cell/pdf/S1934-5909(20)30499-9.pdf). Katsura *et al.* collected bulk RNA-seq from a sample of SARS-CoV-2 infected human lung cells (alveolar type 2 or AT2 cells) 48 hours post inoculation alongwith RNA-seq from a control (uninfected) sample. Each sample had 3 replicates. The data was deposited by the authors at the gene expression omnibus (GEO) database (GSE152586) and can be accessed at https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE152586.   
+The repository contains a Snakemake workflow to analyze data from SARS-CoV-2 infected samples from humans. The workflow analyzes bulk RNA-seq data from a study by Katsura *et al.* (https://www.cell.com/cell-stem-cell/pdf/S1934-5909(20)30499-9.pdf). Katsura *et al.* collected bulk RNA-seq from a sample of SARS-CoV-2 infected human lung cells (alveolar type 2 or AT2 cells) 48 hours post inoculation alongwith RNA-seq from a control (uninfected) sample. Each sample had 3 replicates. The data was deposited by the authors at the gene expression omnibus (GEO) database (GSE152586) and can be accessed at https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE152586.   
 
 *Note: The current version of the pipeline has only the Data Download, Raw Data Quality Check, Adapter Trimming and Trimmed Data Quality Check sections complete. Work is still in progress for other sections (mapping, quantification and differential gene expression) of the pipeline*
 
@@ -32,40 +32,50 @@ The repository contains a Snakemake workflow to analyze data from Covid-19 infec
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-In this project, I have implemented an end-to-end automated workflow for performing RNA-seq analysis.
+In this project, I have implemented a Snakemake workflow to analyze bulk RNA-seq data from SARS CoV-2 infected samples. The intent is have the pipeline automated end-to-end to allow the user to run the analysis without any interruptions. This workflow outlines a very basic approach to analyze RNA-seq data and can be modified by any user to add more rules and convert into a more sophisticated workflow. On an added note, I have not included steps for filtering the data for ribosomal RNAs. I assume that mapping the reads to human reference genome and then collecting the data only for mapped reads and assembling the reads into transcripts should result in high confidence mRNA expression data.
+
+For this work, I have used the human and SARS Cov-2 reference genomes available at NCBI.
+- Human : https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.39_GRCh38.p13/GCF_000001405.39_GRCh38.p13_genomic.fna.gz
+- SAR-CoV-2: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/009/858/895/GCF_009858895.2_ASM985889v3/GCF_009858895.2_ASM985889v3_genomic.fna.gz
 
 
 ### Built With
-
-* []()
-* []()
-* []()
-
+*Python and Snakemake
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
+You will need a Linux machine (Ubuntu 18.04 or similar) to run this workflow. I have run my analysis on a Ubuntu 18.04 instance using the Amazon Web Services (AWS) Elastic Cloud Compute (EC2) services (https://aws.amazon.com/ec2/?ec2-whats-new.sort-by=item.additionalFields.postDateTime&ec2-whats-new.sort-order=desc). If you already have a good configuration Linux machine (e.g., 12 cores, 32 GB memory, ~1 TB diskspace), you should be good to go. Otherwise, if you have a similar configuration Windows machine and have Windows 10 installed, then you can install windows subsystem linux (WSL) to run the analysis (https://docs.microsoft.com/en-us/learn/modules/get-started-with-windows-subsystem-for-linux/).
 
-To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+Ubuntu 18.04 or similar machine with at least 30 GB memory and 1 TB diskspace. Must have BASH installed.
 
 ### Installation
 
 1. Clone the repo
-   ```sh
-   git clone https://github.com/sambitmishra0628/repo_name.git
    ```
-2. Install NPM packages
-   ```sh
-   npm install
+   git clone  https://github.com/sambitmishra0628/RNA-Seq-1
    ```
+2. Install miniconda
+   ```
+   wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+   chmod +x Miniconda3-latest-Linux-x86_64.sh
+   ./Miniconda3-latest-Linux-x86_64.sh
+   ```
+   Follow the instructions to complete the installation of miniconda. 
+
+3. Create a conda environment
+  ```
+  conda create -n rna_seq_env python=3.9
+  conda activate rna_seq_env
+  ```
+   
+4. Install mamba
+`conda install -c conda-forge mamba`
+
+5. Install snakemake
 
 
 
