@@ -67,20 +67,20 @@ Ubuntu 18.04 or similar machine with at least 30 GB memory and 1 TB diskspace. M
    Follow the instructions to complete the installation of miniconda. 
 
 3. Create a conda environment
-  ```
-  conda create -n rna_seq_env python=3.9
-  conda activate rna_seq_env
-  ```
+    ```
+    conda create -n rna_seq_env python=3.9
+    conda activate rna_seq_env
+    ```
    
 4. Install mamba
-  ```
-  conda install -c conda-forge mamba
-  ```
+    ```
+    conda install -c conda-forge mamba
+    ```
 
 5. Install snakemake
-  ```
-  mamba install -c conda-forge -c bioconda snakemake`
-  ```
+    ```
+    mamba install -c conda-forge -c bioconda snakemake`
+    ```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
