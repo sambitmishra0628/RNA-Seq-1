@@ -40,7 +40,7 @@ For this work, I have used the human and SARS Cov-2 reference genomes available 
 
 
 ### Built With
-*Python and Snakemake
+* Python and Snakemake
 
 
 <!-- GETTING STARTED -->
