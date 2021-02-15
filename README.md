@@ -73,10 +73,12 @@ Ubuntu 18.04 or similar machine with at least 30 GB memory and 1 TB diskspace. M
   ```
    
 4. Install mamba
-`conda install -c conda-forge mamba`
+
+  `conda install -c conda-forge mamba`
 
 5. Install snakemake
 
+  `mamba install -c conda-forge -c bioconda snakemake`
 
 
 <!-- USAGE EXAMPLES -->
