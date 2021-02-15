@@ -107,7 +107,7 @@ You can use the environment file provided in this repository to create a similar
     ```
     snakemake -n -p --use-conda --configfile config.yml --cores 4
     ```
-    *Note that I have set the number of cores to 4. You can increase that number depending on the number of cores available in your machine **minus 1**
+    *Note that I have set the number of cores to 4. You can increase that number depending on the number of cores available in your machine* ***minus 1***
 
 5. Run the workflow     
     ```
