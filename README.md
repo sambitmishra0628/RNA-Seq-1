@@ -54,6 +54,8 @@ Ubuntu 18.04 or similar machine with at least 30 GB memory and 1 TB diskspace. M
 
 ### Installation
 
+**Install from scratch**
+
 1. Clone the repo
    ```
    git clone  https://github.com/sambitmishra0628/RNA-Seq-1
@@ -81,15 +83,35 @@ Ubuntu 18.04 or similar machine with at least 30 GB memory and 1 TB diskspace. M
     ```
     mamba install -c conda-forge -c bioconda snakemake`
     ```
+**Install using environment file**
+You can use the environment file provided in this repository to create a similar environment as in the above steps.
+    ```
+    conda create -n rna_seq_env -f env.yml
+    ```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+1. Activate the conda environment (if not already activated)
+    ```
+    conda activate rna_seq_env
+    ```
+2. Clone the repository
+    ```
+    git clone https://github.com/sambitmishra0628/RNA-Seq-1
+    ```
+3. Change the DATADIR in the `RNA-Seq-1/config.yml` to point to a location in your machine
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+4. Do a dry run of Snakemake
+    ```
+    snakemake -n -p --use-conda --configfile config.yml --cores 4
+    ```
+    *Note that I have set the number of cores to 4. You can increase that number depending on the number of cores available in your machine **minus 1** *
 
-
+5. Run the workflow     
+    ```
+    snakemake -p --use-conda --configfile config.yml --cores 4
+    ```
 
 
 <!-- LICENSE -->
@@ -102,9 +124,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
+Sambit Mishra - sambitmishra0628@gmail.com
 
-Project Link: [https://github.com/sambitmishra0628/repo_name](https://github.com/sambitmishra0628/repo_name)
+Project Link: [https://github.com/sambitmishra0628/RNA-Seq-1](https://github.com/sambitmishra0628/RNA-Seq-1)
 
 
 
