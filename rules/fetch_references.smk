@@ -5,7 +5,10 @@ rule fetch_references:
     input:
         directory(config["DATADIR"])
     output:
-        directory(config["DATADIR"] + "/reference_genomes/")
+        config["DATADIR"] +  "/reference_genomes/" + config["human_genome"],
+        sars2_genome = config["DATADIR"] +  "/reference_genomes/" + config["sars2_genome"],
+        human_gff = config["DATADIR"] +  "/reference_genomes/" + config["human_gff"],
+        sars2_gff = config["DATADIR"] +  "/reference_genomes/" + config["sars2_gff"],
     params:
         hg_url = config["human_genome_url"],
         h_gff_url = config["human_gff_url"],

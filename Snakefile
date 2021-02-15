@@ -22,10 +22,12 @@ rule all:
         directory(expand("{dd}/results/multiqc_raw/",dd=config["DATADIR"])),
         
         # Run cutadapt on the raw control and treatment data
-        expand("{dd}" + "/results/samples_trimmed/" + "{control_id}_R1_trimmed.fq.gz", dd=config['DATADIR'], control_id=config['CONTROL']),
-        expand("{dd}" + "/results/samples_trimmed/" + "{control_id}_R2_trimmed.fq.gz", dd=config['DATADIR'], control_id=config['CONTROL']),
-        expand("{dd}" + "/results/samples_trimmed/" + "{treatment_id}_R1_trimmed.fq.gz", dd=config['DATADIR'], treatment_id=config['TREATMENT']),
-        expand("{dd}" + "/results/samples_trimmed/" + "{treatment_id}_R2_trimmed.fq.gz", dd=config['DATADIR'], treatment_id=config['TREATMENT']),                
+        expand("{dd}" + "/results/samples_trimmed/" + "{control_id}_R" + "{p}_trimmed.fq.gz", dd=config['DATADIR'], control_id=config['CONTROL'], p=[1,2]),
+        expand("{dd}" + "/results/samples_trimmed/" + "{control_id}_R" + "{p}_trimmed.fq.gz", dd=config['DATADIR'], control_id=config['TREATMENT'], p=[1,2]),
+
+        #expand("{dd}" + "/results/samples_trimmed/" + "{control_id}_R2_trimmed.fq.gz", dd=config['DATADIR'], control_id=config['CONTROL']),
+        #expand("{dd}" + "/results/samples_trimmed/" + "{treatment_id}_R1_trimmed.fq.gz", dd=config['DATADIR'], treatment_id=config['TREATMENT']),
+        #expand("{dd}" + "/results/samples_trimmed/" + "{treatment_id}_R2_trimmed.fq.gz", dd=config['DATADIR'], treatment_id=config['TREATMENT']),                
                
         # Run FastQC on trimmed data
         directory(expand("{dd}/results/fastqc_trimmed/", dd=config["DATADIR"])),
@@ -33,8 +35,11 @@ rule all:
         # Run MultiQC on trimmed data
         directory(expand("{dd}/results/multiqc_trimmed/",dd=config["DATADIR"])),
         
-        # Download the reference genomes and gffs
-        directory(expand("{dd}" + "/reference_genomes/",dd=config["DATADIR"])),
+        # # Download the reference genomes and gffs
+        expand("{dd}" + "/reference_genomes/" + "{hg}", dd=config["DATADIR"], hg=config["human_genome"]),
+        expand("{dd}" + "/reference_genomes/" + "{hg_gff}", dd=config["DATADIR"], hg_gff=config["human_gff"]),
+        expand("{dd}" + "/reference_genomes/" + "{sg}", dd=config["DATADIR"], sg=config["sars2_genome"]),
+        expand("{dd}" + "/reference_genomes/" + "{sg_gff}", dd=config["DATADIR"], sg_gff=config["sars2_gff"]),
 
         # Index the reference genomes with STAR
         directory(expand("{dd}" + "/human_genome_indexed/", dd=config["DATADIR"])),
