@@ -6,12 +6,11 @@ srcdir = "rules/"
 
 include: srcdir + "fetch_samples.smk",
 include: srcdir + "quality_control.smk",
-include: srcdir + "fetch_references.smk",    
+include: srcdir + "fetch_references.smk",  
+include: srcdir + "index_genomes.smk",
 
 rule all:
     input:
-        # Download the reference genomes and gffs
-        directory(expand("{dd}" + "/reference_genomes/",dd=config["DATADIR"])),
         # Fetch raw RNA-seq data for control and treatment
         expand("{dd}/samples/{control_id}_R{p}.fq.gz" , dd=config["DATADIR"], control_id=config["CONTROL"], p=[1,2]),
         expand("{dd}/samples/{treatment_id}_R{p}.fq.gz" , dd=config["DATADIR"], treatment_id=config["TREATMENT"], p=[1,2]),
@@ -33,6 +32,14 @@ rule all:
 
         # Run MultiQC on trimmed data
         directory(expand("{dd}/results/multiqc_trimmed/",dd=config["DATADIR"])),
+        
+        # Download the reference genomes and gffs
+        directory(expand("{dd}" + "/reference_genomes/",dd=config["DATADIR"])),
+
+        # Index the reference genomes with STAR
+        directory(expand("{dd}" + "/human_genome_indexed/", dd=config["DATADIR"])),
+        directory(expand("{dd}" + "/sars2_genome_indexed/", dd=config["DATADIR"])),
+
 
 
 

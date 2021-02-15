@@ -9,15 +9,17 @@ src_url: https://sra-pub-sars-cov2.s3.amazonaws.com/sra-src/
 
 # Reference genome source urls
 human_genome_url: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.39_GRCh38.p13/GCF_000001405.39_GRCh38.p13_genomic.fna.gz
-covid19_genome_url: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/009/858/895/GCF_009858895.2_ASM985889v3/GCF_009858895.2_ASM985889v3_genomic.fna.gz
+sars2_genome_url: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/009/858/895/GCF_009858895.2_ASM985889v3/GCF_009858895.2_ASM985889v3_genomic.fna.gz
 human_gff_url: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.39_GRCh38.p13/GCF_000001405.39_GRCh38.p13_genomic.gff.gz
-covid19_gff_url: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/009/858/895/GCF_009858895.2_ASM985889v3/GCF_009858895.2_ASM985889v3_genomic.gff.gz 
+sars2_gff_url: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/009/858/895/GCF_009858895.2_ASM985889v3/GCF_009858895.2_ASM985889v3_genomic.gff.gz 
 
-# Name of the genome and gff files
+# Name of the genome,gff and gtf files
 human_genome: GCF_000001405.39_GRCh38.p13_genomic.fna
 human_gff: GCF_000001405.39_GRCh38.p13_genomic.gff
-covid19_genome: GCF_009858895.2_ASM985889v3_genomic.fna
-covid19_gff: GCF_009858895.2_ASM985889v3_genomic.gff
+human_gtf: GCF_000001405.39_GRCh38.p13_genomic.gtf
+sars2_genome: GCF_009858895.2_ASM985889v3_genomic.fna
+sars2_gff: GCF_009858895.2_ASM985889v3_genomic.gff
+sars2_gtf: GCF_009858895.2_ASM985889v3_genomic.gtf
 
 # SRR IDs
 SRR_CONTROL:

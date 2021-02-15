@@ -1,6 +1,6 @@
 ## Author: Sambit K. Mishra
 ## Created: 02-14-2021
-## Download the reference genomes and annotations for human and covid-19
+## Download the reference genomes and annotations for human and sars-2 corona virus
 rule fetch_references:
     input:
         directory(config["DATADIR"])
@@ -9,12 +9,12 @@ rule fetch_references:
     params:
         hg_url = config["human_genome_url"],
         h_gff_url = config["human_gff_url"],
-        cv_url = config["covid19_genome_url"],
-        cv_gff_url = config["covid19_gff_url"],  
+        cv_url = config["sars2_genome_url"],
+        cv_gff_url = config["sars2_gff_url"],  
         hg_file = config["human_genome"],
         h_gff_file = config["human_gff"],
-        cv_g_file = config["covid19_genome"],
-        cv_gff_file = config["covid19_gff"], 
+        cv_g_file = config["sars2_genome"],
+        cv_gff_file = config["sars2_gff"], 
     shell:
         """
         mkdir {output}
