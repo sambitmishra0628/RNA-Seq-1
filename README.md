@@ -81,12 +81,12 @@ Ubuntu 18.04 or similar machine with at least 30 GB memory and 1 TB diskspace. M
 
 5. Install snakemake
     ```
-    mamba install -c conda-forge -c bioconda snakemake`
+    mamba install -c conda-forge -c bioconda snakemake
     ```
 
 **Install using environment file**
 
-You can use the environment file provided in this repository to create a similar environment as in the above steps.
+You can use the environment file provided in this repository to create a similar environment as in the above steps. Follow *steps 1 and 2* and then use the following command.
     
 `conda create -n rna_seq_env -f env.yml`
 
