@@ -88,7 +88,7 @@ Ubuntu 18.04 or similar machine with at least 30 GB memory and 1 TB diskspace. M
 
 You can use the environment file provided in this repository to create a similar environment as in the above steps. Follow **steps 1 and 2** as given above and then use the following command.
     
-`conda create -n rna_seq_env -f env.yml`
+`conda create -n rna_seq_env -f ngs_env.yml`
 
 <!-- USAGE EXAMPLES -->
 ## Usage
