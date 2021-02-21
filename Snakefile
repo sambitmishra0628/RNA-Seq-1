@@ -36,6 +36,7 @@ rule all:
         directory(expand("{dd}/results/multiqc_trimmed/",dd=config["DATADIR"])),
         
         # # Download the reference genomes and gffs
+        directory(expand("{dd}" + "/reference_genomes/", dd=config["DATADIR"])),
         expand("{dd}" + "/reference_genomes/" + "{hg}", dd=config["DATADIR"], hg=config["human_genome"]),
         expand("{dd}" + "/reference_genomes/" + "{hg_gff}", dd=config["DATADIR"], hg_gff=config["human_gff"]),
         expand("{dd}" + "/reference_genomes/" + "{sg}", dd=config["DATADIR"], sg=config["sars2_genome"]),

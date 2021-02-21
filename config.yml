@@ -2,8 +2,8 @@
 ## Created: 02-06-2021
 
 ## Directory names and paths. All directory names are relative to DATADIR
-DATADIR: /home/skmishra/RNA-seq_proj_1
-
+#DATADIR: /home/skmishra/RNA-seq_proj_1
+DATADIR: /rna_seq_vol1/RNA-seq_proj_1
 # Data source
 src_url: https://sra-pub-sars-cov2.s3.amazonaws.com/sra-src/
 
