@@ -46,7 +46,7 @@ rule trim_adapters:
     threads: config["THREADS"]    
     shell:
         """
-        cutadapt -q 20  -m 100 -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT -o {output.fw} -p {output.rev} {input.fw} {input.rev} 2> {log}
+        cutadapt -q 20  -m 100 -j {threads} -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT -o {output.fw} -p {output.rev} {input.fw} {input.rev} 2> {log}
         """
 
 # Perform fastqc quality check on trimmed data
