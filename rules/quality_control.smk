@@ -8,17 +8,14 @@ rule fastqc_raw:
         trt = expand("{dd}/samples/{treatment_id}_R{p}.fq.gz" , dd=config["DATADIR"], treatment_id=config["TREATMENT"], p=[1,2]),
     output:
         out = directory(expand("{dd}/results/fastqc_raw/", dd=config["DATADIR"])),
-    log:
-        log1 = "fastqc_ctr.log",
-        log2 = "fastqc_trt.log",    
     conda:
         "qc.yml"
     threads: config["THREADS"]
     shell:
         """
             mkdir -p {output.out}
-            fastqc -o {output.out} -t {threads} {input.ctr} 2> {output.out}/{log.log1}
-            fastqc -o {output.out} -t {threads} {input.trt} 2> {output.out}/{log.log2}   
+            fastqc -o {output.out} -t {threads} {input.ctr} &> {output.out}/fastqc_raw_ctr.log
+            fastqc -o {output.out} -t {threads} {input.trt} &> {output.out}/fastqc_raw_trt.log   
         """    
 ## Run MultiQC on raw RNA-seq data
 rule multiqc_raw:
@@ -28,9 +25,8 @@ rule multiqc_raw:
         outdir = directory(expand("{dd}/results/multiqc_raw/",dd=config["DATADIR"])),
     conda:
         "qc.yml"
-    log: "multiqc_raw.log"
     shell:
-        "multiqc {input.inputdir} -o {output.outdir} 2> {output.outdir}/{log}"
+        "multiqc {input.inputdir} -o {output.outdir}"
 
 # Remove adapters from raw control and treatment samples
 rule trim_adapters:
@@ -46,7 +42,7 @@ rule trim_adapters:
     threads: config["THREADS"]    
     shell:
         """
-        cutadapt -q 20  -m 100 -j {threads} -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT -o {output.fw} -p {output.rev} {input.fw} {input.rev} 2> {log}
+        cutadapt -q 20  -m 100 -j {threads} -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT -o {output.fw} -p {output.rev} {input.fw} {input.rev} &> {log}
         """
 
 # Perform fastqc quality check on trimmed data
@@ -58,17 +54,14 @@ rule fastqc_trimmed:
         #trt = expand("{dd}" + "{sd}" + "{treatment_id}" + "_R" + "{p}_trimmed" + ".fq.gz", dd=config["DATADIR"], sd=config["TRIMMED_SAMPLE_DIR"], treatment_id=config["TREATMENT"], p=[1,2]),
     output:
         out = directory(expand("{dd}/results/fastqc_trimmed/", dd=config["DATADIR"]))
-    log:
-        log1 = "fastqc_ctr.log",
-        log2 = "fastqc_trt.log",    
     conda:
         "qc.yml"
     threads: config["THREADS"]    
     shell:
         """
         mkdir -p {output.out}
-        fastqc -o {output.out} -t {threads} {input.ctr} 2> {output.out}/{log.log1}
-        fastqc -o {output.out} -t {threads} {input.trt} 2> {output.out}/{log.log2}
+        fastqc -o {output.out} -t {threads} {input.ctr} &> {output.out}/fastqc_trimmed_ctr.log
+        fastqc -o {output.out} -t {threads} {input.trt} &> {output.out}/fastqc_trimmed_trt.log
         """ 
  
 # Perform multiqc quality check on trimmed reads
@@ -79,9 +72,8 @@ rule multiqc_trimmed:
         outdir = directory(expand("{dd}/results/multiqc_trimmed/",dd=config["DATADIR"])),
     conda:
         "qc.yml"
-    log: "multiqc_trimmed.log"    
     shell:
-        "multiqc {input.inputdir} -o {output.outdir} 2> {output.outdir}/{log}"
+        "multiqc {input.inputdir} -o {output.outdir}"
 
 
 
