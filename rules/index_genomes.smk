@@ -20,10 +20,12 @@ rule index_genomes:
         prefix2 = 'sars',
     shell:
         """
-            gffread -T {input.human_gff} -o {params.human_gtf}
-            gffread -T {input.sars2_gff} -o {params.sars2_gtf}
-            STAR --runThreadN {threads} --runMode genomeGenerate --genomeDir {output.out1} --genomeFastaFiles {input.human_genome} --sjdbGTFfile {params.human_gtf} --outFileNamePrefix {output.out1}/{params.prefix1} --sjdbOverhang 100
-            STAR --runThreadN {threads} --runMode genomeGenerate --genomeDir {output.out2} --genomeFastaFiles {input.sars2_genome} --sjdbGTFfile {params.sars2_gtf} --outFileNamePrefix {output.out2}/{params.prefix2} --sjdbOverhang 100
+        gffread -T {input.human_gff} -o {params.human_gtf}
+        gffread -T {input.sars2_gff} -o {params.sars2_gtf}
+        STAR --runThreadN {threads} --runMode genomeGenerate --genomeDir {output.out1} --genomeFastaFiles {input.human_genome} \
+        --sjdbGTFfile {params.human_gtf} --outFileNamePrefix {output.out1}/{params.prefix1} --sjdbOverhang 100 \
+        --limitGenomeGenerateRAM 25000000000 --genomeChrBinNbits=16 --genomeSAsparseD 3
+        STAR --runThreadN {threads} --runMode genomeGenerate --genomeDir {output.out2} --genomeFastaFiles {input.sars2_genome} --sjdbGTFfile {params.sars2_gtf} --outFileNamePrefix {output.out2}/{params.prefix2} --sjdbOverhang 100
         """    
 #             mkdir -p {output.out1}
-#            mkdir -p {output.out2}
+#            mkdir -p {output.o

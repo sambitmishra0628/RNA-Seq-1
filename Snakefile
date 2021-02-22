@@ -8,6 +8,7 @@ include: srcdir + "fetch_samples.smk",
 include: srcdir + "quality_control.smk",
 include: srcdir + "fetch_references.smk",  
 include: srcdir + "index_genomes.smk",
+include: srcdir + "map_reads.smk",
 
 rule all:
     input:
@@ -39,8 +40,11 @@ rule all:
         expand("{dd}" + "/reference_genomes/" + "{sg_gff}", dd=config["DATADIR"], sg_gff=config["sars2_gff"]),
 
         # # Index the reference genomes with STAR
-        # directory(expand("{dd}" + "/human_genome_indexed/", dd=config["DATADIR"])),
-        # directory(expand("{dd}" + "/sars2_genome_indexed/", dd=config["DATADIR"])),
+        directory(expand("{dd}" + "/human_genome_indexed/", dd=config["DATADIR"])),
+        directory(expand("{dd}" + "/sars2_genome_indexed/", dd=config["DATADIR"])),
+
+        # Map reads to human genome using STAR
+        #directory(expand("{dd}" + "/results/mapped_reads/human/", dd=config["DATADIR"]))
 
 
 

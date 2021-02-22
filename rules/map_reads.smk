@@ -9,7 +9,7 @@ rule map_reads:
         trt_fw = expand("{dd}" + "/results/samples_trimmed/" + "{sample_id}" + "_R2_trimmed.fq.gz", dd=config["DATADIR"], sample_id=config["TREATMENT"]),
         trt_rev = expand("{dd}" + "/results/samples_trimmed/" + "{sample_id}" + "_R2_trimmed.fq.gz", dd=config["DATADIR"], sample_id=config["TREATMENT"]),
     output:
-        outdir = directory(expand("{dd}" + "/results/mapped_reads/human/"), dd=config["DATADIR"]),
+        outdir = expand("{dd}" + "/results/mapped_reads/human/",dd=config["DATADIR"]),
     params:
         gd = config["DATADIR"] + "/human_genome_indexed/",
         prefix1 = 'control',
