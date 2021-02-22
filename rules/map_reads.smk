@@ -8,10 +8,10 @@ rule map_reads_ctr:
         rev = "{dd}" + "/results/samples_trimmed/" + "{sample_id}" + "_R2_trimmed.fq.gz",
     output:
         #outdir = expand("{dd}" + "/results/mapped_reads_control/human/",dd=config["DATADIR"]),
-        samout = "{dd}" + "/results/mapped_reads_control/human/" + "{sample_id}.Aligned.out.sam",
+        samout = "{dd}" + "/results/mapped_reads/human/" + "{sample_id}.Aligned.out.sam",
     params:
         gd = config["DATADIR"] + "/human_genome_indexed/",
-        outdir = config["DATADIR"] + "/results/mapped_reads_control/human/"
+        outdir = config["DATADIR"] + "/results/mapped_reads/human/"
     conda:
         "mapping.yml"
     threads: config["THREADS"]    
