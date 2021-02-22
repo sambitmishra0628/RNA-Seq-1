@@ -45,8 +45,8 @@ rule all:
 
         # Map reads to human genome using STAR
         #directory(expand("{dd}" + "/results/mapped_reads/human/", dd=config["DATADIR"])),
-        expand("{dd}" + "/results/mapped_reads/human/" + "{sample_id}.Aligned.out.sam", dd=config["DATADIR"], sample_id=config["CONTROL"]),
-        expand("{dd}" + "/results/mapped_reads/human/" + "{sample_id}.Aligned.out.sam", dd=config["DATADIR"], sample_id=config["TREATMENT"]),
+        expand("{dd}" + "/results/mapped_reads/human/" + "{sample_id}Aligned.sortedByCoord.out.bam", dd=config["DATADIR"], sample_id=config["CONTROL"]),
+        expand("{dd}" + "/results/mapped_reads/human/" + "{sample_id}Aligned.sortedByCoord.out.bam", dd=config["DATADIR"], sample_id=config["TREATMENT"]),
 
 
 
