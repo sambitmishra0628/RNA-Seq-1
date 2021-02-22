@@ -37,12 +37,12 @@ THREADS: 7
 # Sample names
 CONTROL:
   - Control1
-  - Control2
-  - Control3
+  #- Control2
+  #- Control3
 # Treatment names  
 TREATMENT:
   - 48hrs1
-  - 48hrs2
-  - 48hrs3
+  #- 48hrs2
+  #- 48hrs3
 
 
