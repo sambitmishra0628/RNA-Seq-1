@@ -38,9 +38,9 @@ rule all:
         expand("{dd}" + "/reference_genomes/" + "{sg}", dd=config["DATADIR"], sg=config["sars2_genome"]),
         expand("{dd}" + "/reference_genomes/" + "{sg_gff}", dd=config["DATADIR"], sg_gff=config["sars2_gff"]),
 
-        # Index the reference genomes with STAR
-        directory(expand("{dd}" + "/human_genome_indexed/", dd=config["DATADIR"])),
-        directory(expand("{dd}" + "/sars2_genome_indexed/", dd=config["DATADIR"])),
+        # # Index the reference genomes with STAR
+        # directory(expand("{dd}" + "/human_genome_indexed/", dd=config["DATADIR"])),
+        # directory(expand("{dd}" + "/sars2_genome_indexed/", dd=config["DATADIR"])),
 
 
 
