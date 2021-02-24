@@ -120,7 +120,7 @@ You can use the environment file provided in this repository to create a similar
     ```
 ![dag_image](dag.png)    
 
-7. Tip. If you notice that the workflow is running once again after a certain rule/rules failed, the follow the following steps.
+7. Tip. If you notice that the workflow is running all over again after a certain rule/rules failed despite the files from previously executed rules being present, then it is likely due to a time stamp issue. Follow the following steps:
   - Under `rule all`, comment out the rules that fail in the `Snakefile`
   - Run the command `snakemake --touch -p --use-conda --configfile config.yml --cores 4`
  
