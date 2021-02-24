@@ -2,7 +2,7 @@
 ## Created: 02-21-2021
 
 ## Map reads for control and treatment to human genome using STAR
-rule map_reads_ctr:
+rule map_reads:
     input:
         fw = "{dd}" + "/results/samples_trimmed/" + "{sample_id}" + "_R1_trimmed.fq.gz",
         rev = "{dd}" + "/results/samples_trimmed/" + "{sample_id}" + "_R2_trimmed.fq.gz",
